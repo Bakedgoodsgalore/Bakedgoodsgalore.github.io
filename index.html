@@ -3,377 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baked Goods Galore | Simple & Fast Collection</title>
+    <title>Baked Goods Galore | Category Sorted</title>
     <style>
-        /* Simple, clean styles that load quickly */
-        :root {
-            --primary: #f8b400;
-            --secondary: #5c3618;
-            --background: #fff9e6;
-            --card: #ffffff;
-            --text: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Simple, lightweight styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
+            background-color: #fff9e6;
+            color: #333;
         }
         
         header {
             text-align: center;
             margin-bottom: 30px;
             padding: 20px;
-            background-color: var(--primary);
-            border-radius: 5px;
+            background-color: #f8b400;
+            border-radius: 8px;
+            color: #5c3618;
         }
         
-        h1 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        .instructions {
-            background-color: #ffffff;
+        .add-form {
+            background-color: white;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-bottom: 30px;
-            border-left: 5px solid var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        textarea {
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .input-group input, .input-group select {
             width: 100%;
-            height: 200px;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 8px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
+            border-radius: 4px;
         }
         
         button {
-            background-color: var(--primary);
+            background-color: #f8b400;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 10px 15px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 30px;
+            font-weight: bold;
         }
         
         button:hover {
-            background-color: var(--secondary);
+            background-color: #5c3618;
         }
         
-        .filter-container {
+        .search-box {
+            padding: 10px;
+            width: 100%;
             margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-container input {
-            padding: 8px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            flex: 1;
-            min-width: 200px;
+            border-radius: 4px;
         }
         
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .baked-good {
-            background-color: var(--card);
-            border-radius: 5px;
+        .category-section {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        .baked-good:hover {
-            transform: translateY(-5px);
+        .category-title {
+            color: #5c3618;
+            border-bottom: 2px solid #f8b400;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
         
-        .baked-good h3 {
-            color: var(--secondary);
-            margin-bottom: 8px;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 5px;
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
         }
         
-        .baked-good p {
-            margin-bottom: 5px;
-            font-size: 14px;
+        .baked-item {
+            background-color: #fef7e6;
+            padding: 12px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
-        .category {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-top: 8px;
+        .baked-item h3 {
+            margin: 0 0 8px 0;
+            color: #5c3618;
         }
         
         footer {
+            text-align: center;
             margin-top: 50px;
-            text-align: center;
             padding: 20px;
-            background-color: var(--secondary);
+            background-color: #5c3618;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         
-        #load-more {
-            display: block;
-            margin: 30px auto;
-            background-color: var(--secondary);
-        }
-        
-        /* Simple loading indicator */
-        .loading {
-            text-align: center;
-            padding: 20px;
+        .no-items {
             font-style: italic;
-            color: var(--secondary);
+            color: #888;
         }
         
-        /* Simple utility for example data */
-        .example-button {
-            background-color: #dddddd;
-            color: #333;
-            margin-top: 10px;
-        }
-        
-        .example-button:hover {
-            background-color: #cccccc;
+        /* Utility class for hiding elements */
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Baked Goods Galore</h1>
-        <p>A simple, fast-loading gallery of thousands of delicious treats</p>
+        <p>Add and browse thousands of delicious baked goods sorted by category</p>
     </header>
     
-    <div class="instructions">
-        <h2>Add Your Baked Goods</h2>
-        <p>Paste your baked goods data below in JSON format. Each item should have a name, category, and description (optional).</p>
-        <p>Example format: [{"name": "Chocolate Chip Cookie", "category": "Cookie", "description": "A classic treat"}]</p>
-        <textarea id="goods-input" placeholder="Paste your JSON data here or click 'Load Example Data'"></textarea>
-        <button id="load-data">Display Baked Goods</button>
-        <button id="load-example" class="example-button">Load Example Data</button>
+    <div class="add-form">
+        <h2>Add a Baked Good</h2>
+        <form id="baked-good-form">
+            <div class="input-group">
+                <label for="item-name">Name:</label>
+                <input type="text" id="item-name" required placeholder="e.g. Chocolate Chip Cookie">
+            </div>
+            
+            <div class="input-group">
+                <label for="item-category">Category:</label>
+                <select id="item-category" required>
+                    <option value="">-- Select a category --</option>
+                    <option value="Cakes">Cakes</option>
+                    <option value="Cookies">Cookies</option>
+                    <option value="Bread">Bread</option>
+                    <option value="Pastries">Pastries</option>
+                    <option value="Pies">Pies</option>
+                    <option value="Donuts">Donuts</option>
+                    <option value="Muffins">Muffins</option>
+                    <option value="Dessert Bars">Dessert Bars</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+            
+            <button type="submit">Add Item</button>
+        </form>
+        <button id="add-many-button" style="margin-top: 10px; background-color: #ddd; color: #333;">Add 100 Random Items</button>
     </div>
     
-    <div class="filter-container">
-        <input type="text" id="search-input" placeholder="Search baked goods...">
-    </div>
+    <input type="text" id="search-box" class="search-box" placeholder="Search baked goods...">
     
-    <div id="gallery" class="gallery">
-        <!-- Baked goods will appear here -->
+    <div id="categories-container">
+        <!-- Categories will be rendered here -->
     </div>
-    
-    <button id="load-more" style="display: none;">Load More</button>
     
     <footer>
         <p>&copy; 2025 Baked Goods Galore. All rights reserved.</p>
     </footer>
-
+    
     <script>
-        // DOM elements
-        const goodsInput = document.getElementById('goods-input');
-        const loadDataBtn = document.getElementById('load-data');
-        const loadExampleBtn = document.getElementById('load-example');
-        const gallery = document.getElementById('gallery');
-        const searchInput = document.getElementById('search-input');
-        const loadMoreBtn = document.getElementById('load-more');
+        // Store items in a simple object by category
+        const bakedItems = {
+            "Cakes": [],
+            "Cookies": [],
+            "Bread": [],
+            "Pastries": [],
+            "Pies": [],
+            "Donuts": [],
+            "Muffins": [],
+            "Dessert Bars": []
+        };
         
-        // Variables for pagination
-        let allGoods = [];
-        let filteredGoods = [];
-        let currentPage = 1;
-        const itemsPerPage = 20;
+        // DOM Elements
+        const form = document.getElementById('baked-good-form');
+        const nameInput = document.getElementById('item-name');
+        const categoryInput = document.getElementById('item-category');
+        const categoriesContainer = document.getElementById('categories-container');
+        const searchBox = document.getElementById('search-box');
+        const addManyButton = document.getElementById('add-many-button');
         
-        // Load data from textarea
-        loadDataBtn.addEventListener('click', function() {
-            try {
-                // Clear previous data
-                gallery.innerHTML = '';
-                currentPage = 1;
-                
-                // Try to parse JSON
-                const inputData = goodsInput.value.trim();
-                if (!inputData) {
-                    alert('Please enter some data or click "Load Example Data"');
-                    return;
+        // Add event listeners
+        form.addEventListener('submit', addItem);
+        searchBox.addEventListener('input', filterItems);
+        addManyButton.addEventListener('click', addRandomItems);
+        
+        // Load items from localStorage if available
+        function loadFromStorage() {
+            const savedItems = localStorage.getItem('bakedItems');
+            if (savedItems) {
+                try {
+                    const parsed = JSON.parse(savedItems);
+                    Object.keys(parsed).forEach(category => {
+                        if (bakedItems[category]) {
+                            bakedItems[category] = parsed[category];
+                        }
+                    });
+                    renderCategories();
+                } catch (e) {
+                    console.error('Error loading saved items', e);
                 }
-                
-                allGoods = JSON.parse(inputData);
-                
-                if (!Array.isArray(allGoods)) {
-                    alert('Data must be an array of objects');
-                    return;
-                }
-                
-                // Display the goods
-                filterAndDisplayGoods();
-                
-                // Show success message
-                alert(`Successfully loaded ${allGoods.length} baked goods!`);
-                
-            } catch (error) {
-                alert('Error parsing JSON: ' + error.message);
             }
-        });
-        
-        // Load example data
-        loadExampleBtn.addEventListener('click', function() {
-            // Generate example data
-            const exampleData = generateExampleData(1000); // Generate 1000 items
-            goodsInput.value = JSON.stringify(exampleData);
-        });
-        
-        // Search functionality
-        searchInput.addEventListener('input', function() {
-            currentPage = 1;
-            filterAndDisplayGoods();
-        });
-        
-        // Load more
-        loadMoreBtn.addEventListener('click', function() {
-            currentPage++;
-            displayGoods(filteredGoods);
-        });
-        
-        // Filter and display goods
-        function filterAndDisplayGoods() {
-            const searchTerm = searchInput.value.toLowerCase();
-            
-            // Filter the goods based on search
-            filteredGoods = allGoods.filter(good => {
-                return good.name.toLowerCase().includes(searchTerm) || 
-                       good.category.toLowerCase().includes(searchTerm) ||
-                       (good.description && good.description.toLowerCase().includes(searchTerm));
-            });
-            
-            // Clear and display
-            gallery.innerHTML = '';
-            displayGoods(filteredGoods);
         }
         
-        // Display goods with pagination
-        function displayGoods(goods) {
-            // Calculate slice
-            const start = 0;
-            const end = currentPage * itemsPerPage;
-            const goodsToShow = goods.slice(start, end);
-            
-            // Show or hide load more button
-            if (end >= goods.length) {
-                loadMoreBtn.style.display = 'none';
-            } else {
-                loadMoreBtn.style.display = 'block';
+        // Save items to localStorage
+        function saveToStorage() {
+            try {
+                localStorage.setItem('bakedItems', JSON.stringify(bakedItems));
+            } catch (e) {
+                console.error('Error saving items', e);
+                alert('Warning: Unable to save your items in browser storage - you may have too many items.');
             }
+        }
+        
+        // Add a new baked good
+        function addItem(e) {
+            e.preventDefault();
             
-            // Clear gallery for first page
-            if (currentPage === 1) {
-                gallery.innerHTML = '';
-            }
+            const name = nameInput.value.trim();
+            const category = categoryInput.value;
             
-            // Add "no results" message if needed
-            if (goodsToShow.length === 0 && currentPage === 1) {
-                gallery.innerHTML = '<p class="loading">No baked goods found matching your search.</p>';
+            if (!name || !category) {
+                alert('Please fill out all fields');
                 return;
             }
             
-            // Create and append items
-            goodsToShow.forEach(good => {
-                const goodElement = document.createElement('div');
-                goodElement.className = 'baked-good';
-                
-                goodElement.innerHTML = `
-                    <h3>${good.name}</h3>
-                    ${good.description ? `<p>${good.description}</p>` : ''}
-                    <span class="category">${good.category}</span>
-                `;
-                
-                gallery.appendChild(goodElement);
-            });
+            // Add to our data structure
+            bakedItems[category].push({ name });
+            
+            // Clear form
+            nameInput.value = '';
+            categoryInput.value = '';
+            
+            // Save and render
+            saveToStorage();
+            renderCategories();
+            
+            // Focus back on name input
+            nameInput.focus();
         }
         
-        // Function to generate example data
-        function generateExampleData(count) {
-            const categories = ['Cake', 'Cookie', 'Bread', 'Pastry', 'Pie', 'Donut', 'Muffin', 'Dessert Bar'];
-            const adjectives = ['Delicious', 'Homemade', 'Classic', 'Fresh', 'Traditional', 'Gourmet', 'Signature'];
-            const flavors = ['Chocolate', 'Vanilla', 'Strawberry', 'Lemon', 'Blueberry', 'Cinnamon', 'Apple', 'Caramel', 'Maple'];
+        // Add multiple random items
+        function addRandomItems() {
+            // Names for random generation
+            const adjectives = ['Delicious', 'Homemade', 'Classic', 'Fresh', 'Gourmet', 'Sweet', 'Tasty'];
+            const flavors = ['Chocolate', 'Vanilla', 'Strawberry', 'Lemon', 'Cinnamon', 'Apple', 'Blueberry', 'Caramel', 'Maple'];
+            const categories = Object.keys(bakedItems);
             
-            const exampleData = [];
-            
-            for (let i = 0; i < count; i++) {
-                const category = categories[Math.floor(Math.random() * categories.length)];
+            // Generate 100 random items
+            for (let i = 0; i < 100; i++) {
                 const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
                 const flavor = flavors[Math.floor(Math.random() * flavors.length)];
+                const category = categories[Math.floor(Math.random() * categories.length)];
                 
-                let name, description;
-                
+                let name;
                 switch (category) {
-                    case 'Cake':
+                    case 'Cakes':
                         name = `${adjective} ${flavor} Cake`;
-                        description = `A ${adjective.toLowerCase()} cake with ${flavor.toLowerCase()} flavor, perfect for any occasion.`;
                         break;
-                    case 'Cookie':
+                    case 'Cookies':
                         name = `${adjective} ${flavor} Cookies`;
-                        description = `${adjective} cookies with a rich ${flavor.toLowerCase()} taste.`;
                         break;
                     case 'Bread':
                         name = `${adjective} ${flavor} Bread`;
-                        description = `Soft and fluffy bread with hints of ${flavor.toLowerCase()}.`;
                         break;
-                    case 'Pastry':
+                    case 'Pastries':
                         name = `${adjective} ${flavor} Pastry`;
-                        description = `Flaky pastry with ${flavor.toLowerCase()} filling.`;
                         break;
-                    case 'Pie':
+                    case 'Pies':
                         name = `${adjective} ${flavor} Pie`;
-                        description = `A ${adjective.toLowerCase()} pie with ${flavor.toLowerCase()} filling and a perfect crust.`;
                         break;
-                    case 'Donut':
+                    case 'Donuts':
                         name = `${adjective} ${flavor} Donut`;
-                        description = `Soft donut with ${flavor.toLowerCase()} glaze.`;
                         break;
-                    case 'Muffin':
+                    case 'Muffins':
                         name = `${adjective} ${flavor} Muffin`;
-                        description = `Moist muffin with ${flavor.toLowerCase()} flavor.`;
                         break;
-                    case 'Dessert Bar':
+                    case 'Dessert Bars':
                         name = `${adjective} ${flavor} Bar`;
-                        description = `Rich dessert bar with ${flavor.toLowerCase()} taste.`;
                         break;
+                    default:
+                        name = `${adjective} ${flavor} Treat`;
                 }
                 
-                exampleData.push({
-                    name: name,
-                    category: category,
-                    description: description
-                });
+                bakedItems[category].push({ name });
             }
             
-            return exampleData;
+            // Save and render
+            saveToStorage();
+            renderCategories();
+            
+            alert('Added 100 random baked goods!');
         }
+        
+        // Filter items based on search
+        function filterItems() {
+            const searchTerm = searchBox.value.toLowerCase();
+            
+            // Get all item elements
+            const items = document.querySelectorAll('.baked-item');
+            let visibleCategoriesCount = 0;
+            
+            // First, loop through all items to hide/show based on search
+            items.forEach(item => {
+                const name = item.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            // Then, check each category section to see if it has visible items
+            const categorySections = document.querySelectorAll('.category-section');
+            categorySections.forEach(section => {
+                const visibleItems = section.querySelectorAll('.baked-item:not(.hidden)').length;
+                const noItemsMessage = section.querySelector('.no-items');
+                
+                if (visibleItems === 0) {
+                    section.classList.add('hidden');
+                } else {
+                    section.classList.remove('hidden');
+                    visibleCategoriesCount++;
+                    if (noItemsMessage) {
+                        noItemsMessage.classList.add('hidden');
+                    }
+                }
+            });
+            
+            // Show empty message if no categories are visible
+            if (visibleCategoriesCount === 0 && searchTerm) {
+                // Check if message already exists
+                let noResultsMsg = document.getElementById('no-results-message');
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'no-results-message';
+                    noResultsMsg.textContent = 'No items match your search.';
+                    noResultsMsg.style.textAlign = 'center';
+                    noResultsMsg.style.padding = '20px';
+                    noResultsMsg.style.fontStyle = 'italic';
+                    categoriesContainer.appendChild(noResultsMsg);
+                } else {
+                    noResultsMsg.classList.remove('hidden');
+                }
+            } else {
+                const noResultsMsg = document.getElementById('no-results-message');
+                if (noResultsMsg) {
+                    noResultsMsg.classList.add('hidden');
+                }
+            }
+        }
+        
+        // Render all categories and their items
+        function renderCategories() {
+            categoriesContainer.innerHTML = '';
+            
+            Object.keys(bakedItems).forEach(category => {
+                // Skip empty categories
+                if (bakedItems[category].length === 0) return;
+                
+                // Create category section
+                const section = document.createElement('div');
+                section.className = 'category-section';
+                
+                // Add category title
+                const title = document.createElement('h2');
+                title.className = 'category-title';
+                title.textContent = category;
+                section.appendChild(title);
+                
+                // Create grid for items
+                const grid = document.createElement('div');
+                grid.className = 'items-grid';
+                
+                // Add all items in this category
+                bakedItems[category].forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'baked-item';
+                    
+                    const itemName = document.createElement('h3');
+                    itemName.textContent = item.name;
+                    itemElement.appendChild(itemName);
+                    
+                    grid.appendChild(itemElement);
+                });
+                
+                // Add grid to section
+                section.appendChild(grid);
+                
+                // Add section to container
+                categoriesContainer.appendChild(section);
+            });
+            
+            // Show initial search results
+            filterItems();
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFromStorage();
+        });
     </script>
 </body>
 </html>
