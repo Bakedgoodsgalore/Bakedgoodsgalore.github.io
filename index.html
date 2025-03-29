@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baked Goods Galore | Thousands of Delicious Treats</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Baked Goods Galore | Simple & Fast Collection</title>
     <style>
+        /* Simple, clean styles that load quickly */
         :root {
             --primary: #f8b400;
             --secondary: #5c3618;
-            --accent: #ff6b6b;
-            --light: #fff9e6;
-            --dark: #2c2c2c;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --background: #fff9e6;
+            --card: #ffffff;
+            --text: #333333;
         }
         
         * {
@@ -22,656 +21,359 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
+            padding: 20px;
         }
         
         header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
             background-color: var(--primary);
+            border-radius: 5px;
+        }
+        
+        h1 {
             color: var(--secondary);
-            padding: 1rem;
-            text-align: center;
-            position: relative;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8b400"/><path d="M0 20C20 20 20 0 40 0C60 0 60 20 80 20C100 20 100 0 120 0V100H0V20Z" fill="%23f9c74f" opacity="0.3"/></svg>');
-            box-shadow: var(--shadow);
+            margin-bottom: 10px;
         }
         
-        .hero {
-            padding: 4rem 2rem;
-            text-align: center;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="25" cy="25" r="10" fill="%23f9c74f" opacity="0.3"/><circle cx="75" cy="75" r="10" fill="%23f9c74f" opacity="0.3"/><circle cx="75" cy="25" r="10" fill="%23f9c74f" opacity="0.3"/><circle cx="25" cy="75" r="10" fill="%23f9c74f" opacity="0.3"/><circle cx="50" cy="50" r="10" fill="%23f9c74f" opacity="0.3"/></svg>');
-            background-repeat: repeat;
+        .instructions {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .search-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: 2px solid var(--primary);
-            border-radius: 30px;
-            font-size: 1rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .filters {
-            background-color: white;
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .filter-title {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .filter-tag {
-            background-color: var(--light);
-            border: 1px solid var(--primary);
-            color: var(--secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-tag:hover, .filter-tag.active {
+        button {
             background-color: var(--primary);
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 30px;
         }
         
-        .baked-goods-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        button:hover {
+            background-color: var(--secondary);
         }
         
-        .goods-grid {
+        .filter-container {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-container input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
         
-        .good-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+        .baked-good {
+            background-color: var(--card);
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
         
-        .good-card:hover {
+        .baked-good:hover {
             transform: translateY(-5px);
         }
         
-        .good-img {
-            height: 200px;
-            background-color: #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .good-img div {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
-        
-        .good-card:hover .good-img div {
-            transform: scale(1.1);
-        }
-        
-        .good-info {
-            padding: 1.5rem;
-        }
-        
-        .good-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .baked-good h3 {
             color: var(--secondary);
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
         }
         
-        .good-category {
-            display: inline-block;
-            background-color: var(--light);
-            color: var(--secondary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
+        .baked-good p {
+            margin-bottom: 5px;
+            font-size: 14px;
         }
         
-        .good-description {
-            color: #555;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .view-button {
+        .category {
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        
-        .view-button:hover {
-            background-color: var(--secondary);
-        }
-        
-        .load-more {
-            display: block;
-            margin: 2rem auto 4rem;
-            background-color: white;
-            color: var(--secondary);
-            border: 2px solid var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .load-more:hover {
-            background-color: var(--primary);
-            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-top: 8px;
         }
         
         footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
             background-color: var(--secondary);
             color: white;
+            border-radius: 5px;
+        }
+        
+        #load-more {
+            display: block;
+            margin: 30px auto;
+            background-color: var(--secondary);
+        }
+        
+        /* Simple loading indicator */
+        .loading {
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+            padding: 20px;
+            font-style: italic;
+            color: var(--secondary);
         }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1rem 0;
+        /* Simple utility for example data */
+        .example-button {
+            background-color: #dddddd;
+            color: #333;
+            margin-top: 10px;
         }
         
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .goods-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .filter-options {
-                justify-content: center;
-            }
+        .example-button:hover {
+            background-color: #cccccc;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h2>Baked Goods Galore</h2>
-        </div>
+        <h1>Baked Goods Galore</h1>
+        <p>A simple, fast-loading gallery of thousands of delicious treats</p>
     </header>
     
-    <section class="hero">
-        <h1>Thousands of Delicious Baked Goods</h1>
-        <p>Explore our extensive collection of mouth-watering treats from around the world. From the flakiest croissants to the gooiest chocolate chip cookies, we've got them all!</p>
-    </section>
-    
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search for baked goods...">
+    <div class="instructions">
+        <h2>Add Your Baked Goods</h2>
+        <p>Paste your baked goods data below in JSON format. Each item should have a name, category, and description (optional).</p>
+        <p>Example format: [{"name": "Chocolate Chip Cookie", "category": "Cookie", "description": "A classic treat"}]</p>
+        <textarea id="goods-input" placeholder="Paste your JSON data here or click 'Load Example Data'"></textarea>
+        <button id="load-data">Display Baked Goods</button>
+        <button id="load-example" class="example-button">Load Example Data</button>
     </div>
     
-    <section class="filters">
-        <h3 class="filter-title"><i class="fas fa-filter"></i> Filter By Category</h3>
-        <div class="filter-options" id="category-filters">
-            <span class="filter-tag active">All</span>
-            <span class="filter-tag">Cakes</span>
-            <span class="filter-tag">Cookies</span>
-            <span class="filter-tag">Bread</span>
-            <span class="filter-tag">Pastries</span>
-            <span class="filter-tag">Pies</span>
-            <span class="filter-tag">Donuts</span>
-            <span class="filter-tag">Muffins</span>
-            <span class="filter-tag">Dessert Bars</span>
-        </div>
-        
-        <h3 class="filter-title"><i class="fas fa-globe-americas"></i> Filter By Origin</h3>
-        <div class="filter-options" id="origin-filters">
-            <span class="filter-tag active">All</span>
-            <span class="filter-tag">American</span>
-            <span class="filter-tag">French</span>
-            <span class="filter-tag">Italian</span>
-            <span class="filter-tag">Asian</span>
-            <span class="filter-tag">Middle Eastern</span>
-            <span class="filter-tag">Scandinavian</span>
-            <span class="filter-tag">Latin American</span>
-        </div>
-        
-        <h3 class="filter-title"><i class="fas fa-seedling"></i> Dietary Options</h3>
-        <div class="filter-options" id="dietary-filters">
-            <span class="filter-tag active">All</span>
-            <span class="filter-tag">Gluten-Free</span>
-            <span class="filter-tag">Vegan</span>
-            <span class="filter-tag">Sugar-Free</span>
-            <span class="filter-tag">Nut-Free</span>
-            <span class="filter-tag">Dairy-Free</span>
-        </div>
-    </section>
+    <div class="filter-container">
+        <input type="text" id="search-input" placeholder="Search baked goods...">
+    </div>
     
-    <section class="baked-goods-container">
-        <div class="goods-grid" id="goods-grid">
-            <!-- Items will be generated via JavaScript -->
-        </div>
-        
-        <button class="load-more" id="load-more">Load More Baked Goods</button>
-    </section>
+    <div id="gallery" class="gallery">
+        <!-- Baked goods will appear here -->
+    </div>
+    
+    <button id="load-more" style="display: none;">Load More</button>
     
     <footer>
-        <h3>Baked Goods Galore</h3>
-        <div class="footer-links">
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-        </div>
         <p>&copy; 2025 Baked Goods Galore. All rights reserved.</p>
     </footer>
-    
+
     <script>
-        // Sample data (in a real implementation, this would be fetched from a database or JSON file)
-        const bakedGoods = [
-            {
-                id: 1,
-                name: "Classic Croissant",
-                category: "Pastries",
-                origin: "French",
-                dietary: ["Dairy"],
-                description: "Buttery, flaky layers of pastry folded and baked to golden perfection.",
-                image: "croissant"
-            },
-            {
-                id: 2,
-                name: "Chocolate Chip Cookies",
-                category: "Cookies",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Soft, chewy cookies loaded with chocolate chips and a hint of vanilla.",
-                image: "chocolate-chip"
-            },
-            {
-                id: 3,
-                name: "Sourdough Bread",
-                category: "Bread",
-                origin: "European",
-                dietary: ["Vegan"],
-                description: "Artisanal bread with a crisp crust and tangy, chewy interior.",
-                image: "sourdough"
-            },
-            {
-                id: 4,
-                name: "Red Velvet Cake",
-                category: "Cakes",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Rich, moist cake with a distinctive red color, topped with cream cheese frosting.",
-                image: "red-velvet"
-            },
-            {
-                id: 5,
-                name: "Apple Pie",
-                category: "Pies",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Sweet apple filling encased in a flaky, buttery crust, spiced with cinnamon.",
-                image: "apple-pie"
-            },
-            {
-                id: 6,
-                name: "Cinnamon Rolls",
-                category: "Pastries",
-                origin: "Scandinavian",
-                dietary: ["Dairy"],
-                description: "Soft, pillowy rolls filled with cinnamon-sugar and topped with cream cheese glaze.",
-                image: "cinnamon-roll"
-            },
-            {
-                id: 7,
-                name: "Blueberry Muffins",
-                category: "Muffins",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Tender muffins bursting with juicy blueberries and a sweet streusel topping.",
-                image: "blueberry-muffin"
-            },
-            {
-                id: 8,
-                name: "Baklava",
-                category: "Pastries",
-                origin: "Middle Eastern",
-                dietary: ["Nut"],
-                description: "Layers of flaky phyllo dough, honey, and chopped nuts for a sweet, crispy treat.",
-                image: "baklava"
-            },
-            {
-                id: 9,
-                name: "Focaccia",
-                category: "Bread",
-                origin: "Italian",
-                dietary: ["Vegan"],
-                description: "Olive oil-infused flatbread topped with herbs, salt, and sometimes vegetables.",
-                image: "focaccia"
-            },
-            {
-                id: 10,
-                name: "Macarons",
-                category: "Cookies",
-                origin: "French",
-                dietary: ["Gluten-Free", "Nut"],
-                description: "Delicate almond flour cookies with a crisp shell and chewy interior, filled with buttercream.",
-                image: "macaron"
-            },
-            {
-                id: 11,
-                name: "Chocolate Brownie",
-                category: "Dessert Bars",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Rich, fudgy squares of chocolate bliss with a crackly top.",
-                image: "brownie"
-            },
-            {
-                id: 12,
-                name: "Glazed Donuts",
-                category: "Donuts",
-                origin: "American",
-                dietary: ["Dairy"],
-                description: "Light, fluffy fried dough coated in a sweet, shiny glaze.",
-                image: "glazed-donut"
-            }
-        ];
-        
-        // Generate random baked goods
-        const categories = ["Cakes", "Cookies", "Bread", "Pastries", "Pies", "Donuts", "Muffins", "Dessert Bars"];
-        const origins = ["American", "French", "Italian", "Asian", "Middle Eastern", "Scandinavian", "Latin American", "European"];
-        const dietaries = ["Gluten-Free", "Vegan", "Sugar-Free", "Nut-Free", "Dairy-Free", "Dairy", "Nut"];
-        
-        // These would be the names of actual images in a real implementation
-        const images = [
-            "croissant", "chocolate-chip", "sourdough", "red-velvet", "apple-pie", "cinnamon-roll", 
-            "blueberry-muffin", "baklava", "focaccia", "macaron", "brownie", "glazed-donut"
-        ];
-        
-        // Generate additional items to simulate thousands
-        function generateAdditionalGoods(count = 1000) {
-            const adjectives = ["Delicious", "Homemade", "Artisanal", "Gourmet", "Classic", "Signature", "Fresh", "Traditional", "Ultimate", "Heavenly"];
-            const flavors = ["Chocolate", "Vanilla", "Strawberry", "Blueberry", "Lemon", "Orange", "Almond", "Coconut", "Cinnamon", "Honey", "Maple", "Pumpkin", "Caramel"];
-            
-            for (let i = bakedGoods.length + 1; i <= bakedGoods.length + count; i++) {
-                const category = categories[Math.floor(Math.random() * categories.length)];
-                const origin = origins[Math.floor(Math.random() * origins.length)];
-                
-                // Generate 1-2 dietary restrictions
-                const numDietaryRestrictions = Math.floor(Math.random() * 2) + 1;
-                const dietary = [];
-                for (let j = 0; j < numDietaryRestrictions; j++) {
-                    const randomDietary = dietaries[Math.floor(Math.random() * dietaries.length)];
-                    if (!dietary.includes(randomDietary)) {
-                        dietary.push(randomDietary);
-                    }
-                }
-                
-                const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-                const flavor = flavors[Math.floor(Math.random() * flavors.length)];
-                
-                let name = "";
-                let description = "";
-                
-                switch (category) {
-                    case "Cakes":
-                        name = `${adjective} ${flavor} Cake`;
-                        description = `A ${adjective.toLowerCase()} cake infused with ${flavor.toLowerCase()} flavor, perfectly moist and delightfully sweet.`;
-                        break;
-                    case "Cookies":
-                        name = `${adjective} ${flavor} Cookies`;
-                        description = `${adjective} cookies with a ${flavor.toLowerCase()} twist, offering the perfect balance of chewiness and crunch.`;
-                        break;
-                    case "Bread":
-                        name = `${adjective} ${flavor} Bread`;
-                        description = `A ${adjective.toLowerCase()} loaf with subtle hints of ${flavor.toLowerCase()}, perfect for toast or sandwiches.`;
-                        break;
-                    case "Pastries":
-                        name = `${adjective} ${flavor} Pastry`;
-                        description = `Flaky, buttery pastry filled with ${flavor.toLowerCase()}, baked until golden brown.`;
-                        break;
-                    case "Pies":
-                        name = `${adjective} ${flavor} Pie`;
-                        description = `A ${adjective.toLowerCase()} pie with a rich ${flavor.toLowerCase()} filling encased in a perfect crust.`;
-                        break;
-                    case "Donuts":
-                        name = `${adjective} ${flavor} Donut`;
-                        description = `Light, fluffy donut with a ${flavor.toLowerCase()} glaze that melts in your mouth.`;
-                        break;
-                    case "Muffins":
-                        name = `${adjective} ${flavor} Muffin`;
-                        description = `Tender muffin bursting with ${flavor.toLowerCase()} goodness, topped with a crunchy streusel.`;
-                        break;
-                    case "Dessert Bars":
-                        name = `${adjective} ${flavor} Bar`;
-                        description = `Rich, indulgent bars with layers of ${flavor.toLowerCase()}, perfect for a sweet treat.`;
-                        break;
-                }
-                
-                bakedGoods.push({
-                    id: i,
-                    name: name,
-                    category: category,
-                    origin: origin,
-                    dietary: dietary,
-                    description: description,
-                    image: images[Math.floor(Math.random() * images.length)]
-                });
-            }
-        }
-        
-        // Generate additional baked goods to simulate a large collection
-        generateAdditionalGoods(100);  // In a real implementation, this would be much larger
-        
-        // DOM Elements
-        const goodsGrid = document.getElementById('goods-grid');
+        // DOM elements
+        const goodsInput = document.getElementById('goods-input');
+        const loadDataBtn = document.getElementById('load-data');
+        const loadExampleBtn = document.getElementById('load-example');
+        const gallery = document.getElementById('gallery');
+        const searchInput = document.getElementById('search-input');
         const loadMoreBtn = document.getElementById('load-more');
-        const searchInput = document.querySelector('.search-input');
-        const categoryFilters = document.querySelectorAll('#category-filters .filter-tag');
-        const originFilters = document.querySelectorAll('#origin-filters .filter-tag');
-        const dietaryFilters = document.querySelectorAll('#dietary-filters .filter-tag');
         
-        // Filtering state
-        let currentFilters = {
-            category: 'All',
-            origin: 'All',
-            dietary: 'All',
-            search: ''
-        };
-        
-        // Display configuration
+        // Variables for pagination
+        let allGoods = [];
+        let filteredGoods = [];
         let currentPage = 1;
-        const itemsPerPage = 12;
+        const itemsPerPage = 20;
         
-        // Apply filters and show items
-        function filterAndDisplayItems() {
-            // Clear grid
-            goodsGrid.innerHTML = '';
+        // Load data from textarea
+        loadDataBtn.addEventListener('click', function() {
+            try {
+                // Clear previous data
+                gallery.innerHTML = '';
+                currentPage = 1;
+                
+                // Try to parse JSON
+                const inputData = goodsInput.value.trim();
+                if (!inputData) {
+                    alert('Please enter some data or click "Load Example Data"');
+                    return;
+                }
+                
+                allGoods = JSON.parse(inputData);
+                
+                if (!Array.isArray(allGoods)) {
+                    alert('Data must be an array of objects');
+                    return;
+                }
+                
+                // Display the goods
+                filterAndDisplayGoods();
+                
+                // Show success message
+                alert(`Successfully loaded ${allGoods.length} baked goods!`);
+                
+            } catch (error) {
+                alert('Error parsing JSON: ' + error.message);
+            }
+        });
+        
+        // Load example data
+        loadExampleBtn.addEventListener('click', function() {
+            // Generate example data
+            const exampleData = generateExampleData(1000); // Generate 1000 items
+            goodsInput.value = JSON.stringify(exampleData);
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            currentPage = 1;
+            filterAndDisplayGoods();
+        });
+        
+        // Load more
+        loadMoreBtn.addEventListener('click', function() {
+            currentPage++;
+            displayGoods(filteredGoods);
+        });
+        
+        // Filter and display goods
+        function filterAndDisplayGoods() {
+            const searchTerm = searchInput.value.toLowerCase();
             
-            // Filter items
-            let filteredItems = bakedGoods.filter(item => {
-                // Apply category filter
-                if (currentFilters.category !== 'All' && item.category !== currentFilters.category) {
-                    return false;
-                }
-                
-                // Apply origin filter
-                if (currentFilters.origin !== 'All' && item.origin !== currentFilters.origin) {
-                    return false;
-                }
-                
-                // Apply dietary filter
-                if (currentFilters.dietary !== 'All' && !item.dietary.includes(currentFilters.dietary)) {
-                    return false;
-                }
-                
-                // Apply search filter
-                if (currentFilters.search !== '' && !item.name.toLowerCase().includes(currentFilters.search.toLowerCase()) && 
-                    !item.description.toLowerCase().includes(currentFilters.search.toLowerCase())) {
-                    return false;
-                }
-                
-                return true;
+            // Filter the goods based on search
+            filteredGoods = allGoods.filter(good => {
+                return good.name.toLowerCase().includes(searchTerm) || 
+                       good.category.toLowerCase().includes(searchTerm) ||
+                       (good.description && good.description.toLowerCase().includes(searchTerm));
             });
             
-            // Pagination
-            const startIndex = 0;
-            const endIndex = currentPage * itemsPerPage;
-            const paginatedItems = filteredItems.slice(startIndex, endIndex);
+            // Clear and display
+            gallery.innerHTML = '';
+            displayGoods(filteredGoods);
+        }
+        
+        // Display goods with pagination
+        function displayGoods(goods) {
+            // Calculate slice
+            const start = 0;
+            const end = currentPage * itemsPerPage;
+            const goodsToShow = goods.slice(start, end);
             
-            // Hide load more button if all items are displayed
-            if (endIndex >= filteredItems.length) {
+            // Show or hide load more button
+            if (end >= goods.length) {
                 loadMoreBtn.style.display = 'none';
             } else {
                 loadMoreBtn.style.display = 'block';
             }
             
-            // Display items
-            paginatedItems.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'good-card';
+            // Clear gallery for first page
+            if (currentPage === 1) {
+                gallery.innerHTML = '';
+            }
+            
+            // Add "no results" message if needed
+            if (goodsToShow.length === 0 && currentPage === 1) {
+                gallery.innerHTML = '<p class="loading">No baked goods found matching your search.</p>';
+                return;
+            }
+            
+            // Create and append items
+            goodsToShow.forEach(good => {
+                const goodElement = document.createElement('div');
+                goodElement.className = 'baked-good';
                 
-                // Use placeholder image pattern based on item.image
-                // In a real implementation, these would be actual image URLs
-                const imageColors = {
-                    "croissant": "#f9c74f",
-                    "chocolate-chip": "#90be6d",
-                    "sourdough": "#f8edeb",
-                    "red-velvet": "#d62828",
-                    "apple-pie": "#e9c46a",
-                    "cinnamon-roll": "#c9ada7",
-                    "blueberry-muffin": "#4361ee",
-                    "baklava": "#e9c46a",
-                    "focaccia": "#dad7cd",
-                    "macaron": "#ff9e00",
-                    "brownie": "#7f5539",
-                    "glazed-donut": "#fcbf49"
-                };
-                
-                const bgColor = imageColors[item.image] || "#f8b400";
-                
-                card.innerHTML = `
-                    <div class="good-img">
-                        <div style="background-color: ${bgColor}; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
-                            ${item.name.charAt(0)}
-                        </div>
-                    </div>
-                    <div class="good-info">
-                        <span class="good-category">${item.category}</span>
-                        <h3 class="good-title">${item.name}</h3>
-                        <p class="good-description">${item.description}</p>
-                        <a href="#" class="view-button">View Recipe</a>
-                    </div>
+                goodElement.innerHTML = `
+                    <h3>${good.name}</h3>
+                    ${good.description ? `<p>${good.description}</p>` : ''}
+                    <span class="category">${good.category}</span>
                 `;
                 
-                goodsGrid.appendChild(card);
+                gallery.appendChild(goodElement);
             });
         }
         
-        // Initialize display
-        filterAndDisplayItems();
-        
-        // Event Listeners
-        loadMoreBtn.addEventListener('click', () => {
-            currentPage++;
-            filterAndDisplayItems();
-        });
-        
-        searchInput.addEventListener('input', (e) => {
-            currentFilters.search = e.target.value;
-            currentPage = 1;
-            filterAndDisplayItems();
-        });
-        
-        function setupFilterTags(filterElements) {
-            filterElements.forEach(tag => {
-                tag.addEventListener('click', () => {
-                    // Remove active class from siblings
-                    filterElements.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked element
-                    tag.classList.add('active');
-                    
-                    // Update filter state
-                    const filterType = tag.parentElement.id.split('-')[0];
-                    currentFilters[filterType] = tag.textContent;
-                    
-                    // Reset to first page and apply filters
-                    currentPage = 1;
-                    filterAndDisplayItems();
+        // Function to generate example data
+        function generateExampleData(count) {
+            const categories = ['Cake', 'Cookie', 'Bread', 'Pastry', 'Pie', 'Donut', 'Muffin', 'Dessert Bar'];
+            const adjectives = ['Delicious', 'Homemade', 'Classic', 'Fresh', 'Traditional', 'Gourmet', 'Signature'];
+            const flavors = ['Chocolate', 'Vanilla', 'Strawberry', 'Lemon', 'Blueberry', 'Cinnamon', 'Apple', 'Caramel', 'Maple'];
+            
+            const exampleData = [];
+            
+            for (let i = 0; i < count; i++) {
+                const category = categories[Math.floor(Math.random() * categories.length)];
+                const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+                const flavor = flavors[Math.floor(Math.random() * flavors.length)];
+                
+                let name, description;
+                
+                switch (category) {
+                    case 'Cake':
+                        name = `${adjective} ${flavor} Cake`;
+                        description = `A ${adjective.toLowerCase()} cake with ${flavor.toLowerCase()} flavor, perfect for any occasion.`;
+                        break;
+                    case 'Cookie':
+                        name = `${adjective} ${flavor} Cookies`;
+                        description = `${adjective} cookies with a rich ${flavor.toLowerCase()} taste.`;
+                        break;
+                    case 'Bread':
+                        name = `${adjective} ${flavor} Bread`;
+                        description = `Soft and fluffy bread with hints of ${flavor.toLowerCase()}.`;
+                        break;
+                    case 'Pastry':
+                        name = `${adjective} ${flavor} Pastry`;
+                        description = `Flaky pastry with ${flavor.toLowerCase()} filling.`;
+                        break;
+                    case 'Pie':
+                        name = `${adjective} ${flavor} Pie`;
+                        description = `A ${adjective.toLowerCase()} pie with ${flavor.toLowerCase()} filling and a perfect crust.`;
+                        break;
+                    case 'Donut':
+                        name = `${adjective} ${flavor} Donut`;
+                        description = `Soft donut with ${flavor.toLowerCase()} glaze.`;
+                        break;
+                    case 'Muffin':
+                        name = `${adjective} ${flavor} Muffin`;
+                        description = `Moist muffin with ${flavor.toLowerCase()} flavor.`;
+                        break;
+                    case 'Dessert Bar':
+                        name = `${adjective} ${flavor} Bar`;
+                        description = `Rich dessert bar with ${flavor.toLowerCase()} taste.`;
+                        break;
+                }
+                
+                exampleData.push({
+                    name: name,
+                    category: category,
+                    description: description
                 });
-            });
+            }
+            
+            return exampleData;
         }
-        
-        setupFilterTags(categoryFilters);
-        setupFilterTags(originFilters);
-        setupFilterTags(dietaryFilters);
     </script>
 </body>
 </html>
