@@ -3,413 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baked Goods Galore | Category Sorted</title>
-    <style>
-        /* Simple, lightweight styling */
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff9e6;
-            color: #333;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f8b400;
-            border-radius: 8px;
-            color: #5c3618;
-        }
-        
-        .add-form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .input-group input, .input-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        button {
-            background-color: #f8b400;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        button:hover {
-            background-color: #5c3618;
-        }
-        
-        .search-box {
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        .category-section {
-            margin-bottom: 30px;
-            background-color: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .category-title {
-            color: #5c3618;
-            border-bottom: 2px solid #f8b400;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .baked-item {
-            background-color: #fef7e6;
-            padding: 12px;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .baked-item h3 {
-            margin: 0 0 8px 0;
-            color: #5c3618;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #5c3618;
-            color: white;
-            border-radius: 8px;
-        }
-        
-        .no-items {
-            font-style: italic;
-            color: #888;
-        }
-        
-        /* Utility class for hiding elements */
-        .hidden {
-            display: none;
-        }
-    </style>
+    <title>Baked Goods Galore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Baked Goods Galore</h1>
-        <p>Add and browse thousands of delicious baked goods sorted by category</p>
+        <div class="header-content">
+            <h1>Baked Goods Galore</h1>
+            <p class="tagline">Systematically arranged for your visual delectation</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#breads">Breads</a></li>
+                <li><a href="#pastries">Pastries</a></li>
+                <li><a href="#cakes">Cakes</a></li>
+                <li><a href="#cookies">Cookies</a></li>
+                <li><a href="#desserts">Desserts</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for baked goods...">
+            <button id="search-button">Search</button>
+        </div>
     </header>
-    
-    <div class="add-form">
-        <h2>Add a Baked Good</h2>
-        <form id="baked-good-form">
-            <div class="input-group">
-                <label for="item-name">Name:</label>
-                <input type="text" id="item-name" required placeholder="e.g. Chocolate Chip Cookie">
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Discover Thousands of Delightful Baked Creations</h2>
+                <p>From artisanal breads to decadent pastries, explore our vast collection of baked goods from around the world</p>
+                <a href="#categories" class="btn">Explore Categories</a>
             </div>
-            
-            <div class="input-group">
-                <label for="item-category">Category:</label>
-                <select id="item-category" required>
-                    <option value="">-- Select a category --</option>
-                    <option value="Cakes">Cakes</option>
-                    <option value="Cookies">Cookies</option>
-                    <option value="Bread">Bread</option>
-                    <option value="Pastries">Pastries</option>
-                    <option value="Pies">Pies</option>
-                    <option value="Donuts">Donuts</option>
-                    <option value="Muffins">Muffins</option>
-                    <option value="Dessert Bars">Dessert Bars</option>
-                    <!-- Add more categories as needed -->
-                </select>
+        </section>
+
+        <section id="categories" class="categories">
+            <h2>Browse by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='#breads'">
+                    <div class="category-image bread-bg"></div>
+                    <h3>Breads</h3>
+                    <p>200+ varieties</p>
+                </div>
+                <div class="category-card" onclick="location.href='#pastries'">
+                    <div class="category-image pastry-bg"></div>
+                    <h3>Pastries</h3>
+                    <p>200+ varieties</p>
+                </div>
+                <div class="category-card" onclick="location.href='#cakes'">
+                    <div class="category-image cake-bg"></div>
+                    <h3>Cakes</h3>
+                    <p>200+ varieties</p>
+                </div>
+                <div class="category-card" onclick="location.href='#cookies'">
+                    <div class="category-image cookie-bg"></div>
+                    <h3>Cookies</h3>
+                    <p>100+ varieties</p>
+                </div>
+                <div class="category-card" onclick="location.href='#desserts'">
+                    <div class="category-image dessert-bg"></div>
+                    <h3>Desserts</h3>
+                    <p>150+ varieties</p>
+                </div>
             </div>
+        </section>
+
+        <section id="breads" class="baked-goods-section">
+            <h2>Breads <span class="count">(200+)</span></h2>
             
-            <button type="submit">Add Item</button>
-        </form>
-        <button id="add-many-button" style="margin-top: 10px; background-color: #ddd; color: #333;">Add 100 Random Items</button>
-    </div>
-    
-    <input type="text" id="search-box" class="search-box" placeholder="Search baked goods...">
-    
-    <div id="categories-container">
-        <!-- Categories will be rendered here -->
-    </div>
-    
+            <div class="subcategory">
+                <h3>Leavened Breads</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?baguette')"></div>
+                        <h4>Baguette</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?ciabatta')"></div>
+                        <h4>Ciabatta</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?sourdough')"></div>
+                        <h4>Sourdough</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?challah')"></div>
+                        <h4>Challah</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?brioche')"></div>
+                        <h4>Brioche</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?focaccia')"></div>
+                        <h4>Focaccia</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?naan')"></div>
+                        <h4>Naan</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?pita')"></div>
+                        <h4>Pita</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <div class="subcategory">
+                <h3>Quick Breads</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?banana-bread')"></div>
+                        <h4>Banana Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?zucchini-bread')"></div>
+                        <h4>Zucchini Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?pumpkin-bread')"></div>
+                        <h4>Pumpkin Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?carrot-bread')"></div>
+                        <h4>Carrot Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?beer-bread')"></div>
+                        <h4>Beer Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?damper')"></div>
+                        <h4>Damper</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?applesauce-bread')"></div>
+                        <h4>Applesauce Bread</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?date-bread')"></div>
+                        <h4>Date Bread</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <!-- More bread subcategories would be added here -->
+        </section>
+
+        <section id="pastries" class="baked-goods-section">
+            <h2>Pastries <span class="count">(200+)</span></h2>
+            
+            <div class="subcategory">
+                <h3>Laminated Pastries</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?croissant')"></div>
+                        <h4>Croissant</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?pain-au-chocolat')"></div>
+                        <h4>Pain au Chocolat</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?almond-croissant')"></div>
+                        <h4>Almond Croissant</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?pain-aux-raisins')"></div>
+                        <h4>Pain aux Raisins</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?danish-pastry')"></div>
+                        <h4>Danish Pastry</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?kouign-amann')"></div>
+                        <h4>Kouign-Amann</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?palmier')"></div>
+                        <h4>Palmier</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?vol-au-vent')"></div>
+                        <h4>Vol-au-vent</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <!-- More pastry subcategories would be added here -->
+        </section>
+
+        <section id="cakes" class="baked-goods-section">
+            <h2>Cakes <span class="count">(200+)</span></h2>
+            
+            <div class="subcategory">
+                <h3>Layer Cakes</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?chocolate-cake')"></div>
+                        <h4>Chocolate Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?yellow-cake')"></div>
+                        <h4>Yellow Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?white-cake')"></div>
+                        <h4>White Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?red-velvet-cake')"></div>
+                        <h4>Red Velvet Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?carrot-cake')"></div>
+                        <h4>Carrot Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?spice-cake')"></div>
+                        <h4>Spice Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?coffee-cake')"></div>
+                        <h4>Coffee Cake</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?german-chocolate-cake')"></div>
+                        <h4>German Chocolate Cake</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <!-- More cake subcategories would be added here -->
+        </section>
+
+        <section id="cookies" class="baked-goods-section">
+            <h2>Cookies <span class="count">(100+)</span></h2>
+            
+            <div class="subcategory">
+                <h3>Drop Cookies</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?chocolate-chip-cookie')"></div>
+                        <h4>Chocolate Chip</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?oatmeal-raisin-cookie')"></div>
+                        <h4>Oatmeal Raisin</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?peanut-butter-cookie')"></div>
+                        <h4>Peanut Butter</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?snickerdoodle')"></div>
+                        <h4>Snickerdoodle</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?white-chocolate-macadamia')"></div>
+                        <h4>White Chocolate Macadamia</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?ginger-cookie')"></div>
+                        <h4>Ginger</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?sugar-cookie')"></div>
+                        <h4>Sugar</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?molasses-cookie')"></div>
+                        <h4>Molasses</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <!-- More cookie subcategories would be added here -->
+        </section>
+
+        <section id="desserts" class="baked-goods-section">
+            <h2>Desserts <span class="count">(150+)</span></h2>
+            
+            <div class="subcategory">
+                <h3>Puddings & Custards</h3>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?bread-pudding')"></div>
+                        <h4>Bread Pudding</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?creme-brulee')"></div>
+                        <h4>Crème Brûlée</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?flan')"></div>
+                        <h4>Flan</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?panna-cotta')"></div>
+                        <h4>Panna Cotta</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?rice-pudding')"></div>
+                        <h4>Rice Pudding</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?tiramisu')"></div>
+                        <h4>Tiramisu</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?trifle')"></div>
+                        <h4>Trifle</h4>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-image" style="background-image: url('https://source.unsplash.com/random/300x300/?zabaglione')"></div>
+                        <h4>Zabaglione</h4>
+                    </div>
+                    <!-- More items would be added here -->
+                </div>
+                <button class="view-more">View More</button>
+            </div>
+
+            <!-- More dessert subcategories would be added here -->
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2025 Baked Goods Galore. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Baked Goods Galore</h3>
+                <p>A visual feast of thousands of baked goods from around the world.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#breads">Breads</a></li>
+                    <li><a href="#pastries">Pastries</a></li>
+                    <li><a href="#cakes">Cakes</a></li>
+                    <li><a href="#cookies">Cookies</a></li>
+                    <li><a href="#desserts">Desserts</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@bakedgoodsgalore.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Baked Goods Galore. All rights reserved.</p>
+        </div>
     </footer>
-    
-    <script>
-        // Store items in a simple object by category
-        const bakedItems = {
-            "Cakes": [],
-            "Cookies": [],
-            "Bread": [],
-            "Pastries": [],
-            "Pies": [],
-            "Donuts": [],
-            "Muffins": [],
-            "Dessert Bars": []
-        };
-        
-        // DOM Elements
-        const form = document.getElementById('baked-good-form');
-        const nameInput = document.getElementById('item-name');
-        const categoryInput = document.getElementById('item-category');
-        const categoriesContainer = document.getElementById('categories-container');
-        const searchBox = document.getElementById('search-box');
-        const addManyButton = document.getElementById('add-many-button');
-        
-        // Add event listeners
-        form.addEventListener('submit', addItem);
-        searchBox.addEventListener('input', filterItems);
-        addManyButton.addEventListener('click', addRandomItems);
-        
-        // Load items from localStorage if available
-        function loadFromStorage() {
-            const savedItems = localStorage.getItem('bakedItems');
-            if (savedItems) {
-                try {
-                    const parsed = JSON.parse(savedItems);
-                    Object.keys(parsed).forEach(category => {
-                        if (bakedItems[category]) {
-                            bakedItems[category] = parsed[category];
-                        }
-                    });
-                    renderCategories();
-                } catch (e) {
-                    console.error('Error loading saved items', e);
-                }
-            }
-        }
-        
-        // Save items to localStorage
-        function saveToStorage() {
-            try {
-                localStorage.setItem('bakedItems', JSON.stringify(bakedItems));
-            } catch (e) {
-                console.error('Error saving items', e);
-                alert('Warning: Unable to save your items in browser storage - you may have too many items.');
-            }
-        }
-        
-        // Add a new baked good
-        function addItem(e) {
-            e.preventDefault();
-            
-            const name = nameInput.value.trim();
-            const category = categoryInput.value;
-            
-            if (!name || !category) {
-                alert('Please fill out all fields');
-                return;
-            }
-            
-            // Add to our data structure
-            bakedItems[category].push({ name });
-            
-            // Clear form
-            nameInput.value = '';
-            categoryInput.value = '';
-            
-            // Save and render
-            saveToStorage();
-            renderCategories();
-            
-            // Focus back on name input
-            nameInput.focus();
-        }
-        
-        // Add multiple random items
-        function addRandomItems() {
-            // Names for random generation
-            const adjectives = ['Delicious', 'Homemade', 'Classic', 'Fresh', 'Gourmet', 'Sweet', 'Tasty'];
-            const flavors = ['Chocolate', 'Vanilla', 'Strawberry', 'Lemon', 'Cinnamon', 'Apple', 'Blueberry', 'Caramel', 'Maple'];
-            const categories = Object.keys(bakedItems);
-            
-            // Generate 100 random items
-            for (let i = 0; i < 100; i++) {
-                const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-                const flavor = flavors[Math.floor(Math.random() * flavors.length)];
-                const category = categories[Math.floor(Math.random() * categories.length)];
-                
-                let name;
-                switch (category) {
-                    case 'Cakes':
-                        name = `${adjective} ${flavor} Cake`;
-                        break;
-                    case 'Cookies':
-                        name = `${adjective} ${flavor} Cookies`;
-                        break;
-                    case 'Bread':
-                        name = `${adjective} ${flavor} Bread`;
-                        break;
-                    case 'Pastries':
-                        name = `${adjective} ${flavor} Pastry`;
-                        break;
-                    case 'Pies':
-                        name = `${adjective} ${flavor} Pie`;
-                        break;
-                    case 'Donuts':
-                        name = `${adjective} ${flavor} Donut`;
-                        break;
-                    case 'Muffins':
-                        name = `${adjective} ${flavor} Muffin`;
-                        break;
-                    case 'Dessert Bars':
-                        name = `${adjective} ${flavor} Bar`;
-                        break;
-                    default:
-                        name = `${adjective} ${flavor} Treat`;
-                }
-                
-                bakedItems[category].push({ name });
-            }
-            
-            // Save and render
-            saveToStorage();
-            renderCategories();
-            
-            alert('Added 100 random baked goods!');
-        }
-        
-        // Filter items based on search
-        function filterItems() {
-            const searchTerm = searchBox.value.toLowerCase();
-            
-            // Get all item elements
-            const items = document.querySelectorAll('.baked-item');
-            let visibleCategoriesCount = 0;
-            
-            // First, loop through all items to hide/show based on search
-            items.forEach(item => {
-                const name = item.querySelector('h3').textContent.toLowerCase();
-                if (name.includes(searchTerm)) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-            
-            // Then, check each category section to see if it has visible items
-            const categorySections = document.querySelectorAll('.category-section');
-            categorySections.forEach(section => {
-                const visibleItems = section.querySelectorAll('.baked-item:not(.hidden)').length;
-                const noItemsMessage = section.querySelector('.no-items');
-                
-                if (visibleItems === 0) {
-                    section.classList.add('hidden');
-                } else {
-                    section.classList.remove('hidden');
-                    visibleCategoriesCount++;
-                    if (noItemsMessage) {
-                        noItemsMessage.classList.add('hidden');
-                    }
-                }
-            });
-            
-            // Show empty message if no categories are visible
-            if (visibleCategoriesCount === 0 && searchTerm) {
-                // Check if message already exists
-                let noResultsMsg = document.getElementById('no-results-message');
-                if (!noResultsMsg) {
-                    noResultsMsg = document.createElement('div');
-                    noResultsMsg.id = 'no-results-message';
-                    noResultsMsg.textContent = 'No items match your search.';
-                    noResultsMsg.style.textAlign = 'center';
-                    noResultsMsg.style.padding = '20px';
-                    noResultsMsg.style.fontStyle = 'italic';
-                    categoriesContainer.appendChild(noResultsMsg);
-                } else {
-                    noResultsMsg.classList.remove('hidden');
-                }
-            } else {
-                const noResultsMsg = document.getElementById('no-results-message');
-                if (noResultsMsg) {
-                    noResultsMsg.classList.add('hidden');
-                }
-            }
-        }
-        
-        // Render all categories and their items
-        function renderCategories() {
-            categoriesContainer.innerHTML = '';
-            
-            Object.keys(bakedItems).forEach(category => {
-                // Skip empty categories
-                if (bakedItems[category].length === 0) return;
-                
-                // Create category section
-                const section = document.createElement('div');
-                section.className = 'category-section';
-                
-                // Add category title
-                const title = document.createElement('h2');
-                title.className = 'category-title';
-                title.textContent = category;
-                section.appendChild(title);
-                
-                // Create grid for items
-                const grid = document.createElement('div');
-                grid.className = 'items-grid';
-                
-                // Add all items in this category
-                bakedItems[category].forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'baked-item';
-                    
-                    const itemName = document.createElement('h3');
-                    itemName.textContent = item.name;
-                    itemElement.appendChild(itemName);
-                    
-                    grid.appendChild(itemElement);
-                });
-                
-                // Add grid to section
-                section.appendChild(grid);
-                
-                // Add section to container
-                categoriesContainer.appendChild(section);
-            });
-            
-            // Show initial search results
-            filterItems();
-        }
-        
-        // Initialize on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            loadFromStorage();
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
