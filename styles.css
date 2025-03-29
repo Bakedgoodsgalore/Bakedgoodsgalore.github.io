@@ -1,0 +1,463 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f5f0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c1810;
+}
+
+a {
+    text-decoration: none;
+    color: #8b5a2b;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #d4a762;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #8b5a2b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #d4a762;
+    color: #2c1810;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #8b5a2b;
+}
+
+.tagline {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+nav a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #d4a762;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#search-input {
+    padding: 10px 15px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 30px 0 0 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #8b5a2b;
+    color: white;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #d4a762;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1400x600/?bakery');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Categories Section */
+.categories {
+    margin-bottom: 4rem;
+}
+
+.categories h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.bread-bg {
+    background-image: url('https://source.unsplash.com/random/400x400/?bread');
+}
+
+.pastry-bg {
+    background-image: url('https://source.unsplash.com/random/400x400/?pastry');
+}
+
+.cake-bg {
+    background-image: url('https://source.unsplash.com/random/400x400/?cake');
+}
+
+.cookie-bg {
+    background-image: url('https://source.unsplash.com/random/400x400/?cookie');
+}
+
+.dessert-bg {
+    background-image: url('https://source.unsplash.com/random/400x400/?dessert');
+}
+
+.category-card h3 {
+    padding: 1.5rem 1rem 0.5rem;
+    font-size: 1.5rem;
+}
+
+.category-card p {
+    padding: 0 1rem 1.5rem;
+    color: #666;
+}
+
+/* Baked Goods Sections */
+.baked-goods-section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 100px;
+}
+
+.baked-goods-section h2 {
+    font-size: 2.2rem;
+    border-bottom: 2px solid #d4a762;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.count {
+    font-size: 1.2rem;
+    color: #8b5a2b;
+    margin-left: 1rem;
+    font-weight: normal;
+}
+
+.subcategory {
+    margin-bottom: 3rem;
+}
+
+.subcategory h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #8b5a2b;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.item-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+}
+
+.item-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.item-card h4 {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.view-more {
+    display: block;
+    margin: 2rem auto 0;
+    background-color: transparent;
+    border: 2px solid #8b5a2b;
+    color: #8b5a2b;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-more:hover {
+    background-color: #8b5a2b;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c1810;
+    color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: #d4a762;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #d4a762;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .item-image {
+        height: 150px;
+    }
+    
+    #search-input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    nav a {
+        font-size: 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+    
+    .item-image {
+        height: 130px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #search-input {
+        width: 100%;
+        border-radius: 30px;
+        margin-bottom: 10px;
+    }
+    
+    #search-button {
+        width: 100%;
+        border-radius: 30px;
+    }
+}
